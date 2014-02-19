@@ -5,3 +5,8 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rottenpotatoes::Application.load_tasks
+
+desc "This is a sample task"
+task :my_task do
+	puts "This is my task"
+end

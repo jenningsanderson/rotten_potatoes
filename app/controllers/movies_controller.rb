@@ -3,6 +3,8 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+
+    @all_ratings = Movie.pluck(:rating).uniq
   end
 
   def show
@@ -16,6 +18,7 @@ class MoviesController < ApplicationController
   end
 
   def create
+    debugger
     @movie = Movie.create!(params[:movie])
     flash[:notice] = "#{@movie.title} was successfully created."
     redirect_to movies_path
@@ -38,5 +41,5 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
-
 end
+
